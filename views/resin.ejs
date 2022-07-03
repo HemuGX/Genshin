@@ -1,0 +1,75 @@
+<%- include("partials/header") -%>
+
+<div class="calculation-wrapper">
+    <video id="background-video__home" autoplay loop muted poster="https://wiki.hoyolab.com/_nuxt/videos/bg_hydro.553f0b8.webm">
+        <source src="https://wiki.hoyolab.com/_nuxt/videos/bg_hydro.553f0b8.webm" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="row calculation-wrapper">
+            <div class="col-6 col-md-12 col-sm-12 calculation-image">
+                <img src="https://bbs.hoyolab.com/hoyowiki/picture/character/%E5%A4%9C%E5%85%B0/avatar.png" alt="xiao" srcset="">
+            </div>
+            <div class="col-6 col-md-12 col-sm-12 calculation-inputs-wrapper" id="calculation-inputs-wrapper">
+                <div class="calculation-inputs">
+                    <div class="basic-inputs">
+                    <h2>Calculate your Resin filling time.</h2>
+                    <label for="resin_current">Current Resin?</label>
+                    <input type="number" id="resin_current">
+                    <label for="resin_target">Target?</label>
+                    <input type="number" id="resin_target">
+                    <div class="button-input">
+                        <button onclick="calculate()" class="button-resin" type="Submit">Check</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div hidden class="col-6 col-md-12 col-sm-12 calculation-result" id="calculation-result">
+            <h1 id="output">Hey</h1>
+            <h2 id="output-2">Hey</h2>
+            <!-- <div class="calculation-result-links">
+                <a href="/primogems" class="links">Primogems</a>
+            </div> -->
+            <!-- <div class="calculation-result-code-resin">
+                <h1>e</h1>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<script>
+     function calculate() {
+        document.getElementById("calculation-inputs-wrapper").style.display = "none";
+        const currentResin = parseInt(document.getElementById("resin_current").value);
+        const targetResin = parseInt(document.getElementById("resin_target").value);
+        
+        const resinGap =parseInt(targetResin) - parseInt(currentResin) 
+        const minsRequired = parseInt(resinGap)*8
+
+        var hours = Math.floor(minsRequired / 60);          
+        var minutes = minsRequired % 60
+
+        console.log(minsRequired)
+        var add_minutes =  function (dt, minutes) {
+            let options = { weekday: 'long', hour: 'numeric', minute: 'numeric'};
+        return new Date(dt.getTime() + minutes*60000).toLocaleString('en-US', options);
+        
+         }
+        var fillInTime = add_minutes(new Date(), minsRequired).toString();
+        // var today = new Date ();
+        // var fillInTime = new Date ( today );
+        // fillInTime.setMinutes ( today.getMinutes() + minsRequired );
+
+        if (hours === 0 ) {
+            document.getElementById("output").innerText = "Time required to reach your target Resin is " + minutes + " Minutes."
+        } else {
+            document.getElementById("output").innerText = "Time required to reach your target Resin is " + hours + " hours and " + minutes + " Minutes." 
+        }
+
+        document.getElementById("output-2").innerText ="Your will reach your target by "+ fillInTime
+        
+        document.getElementById("calculation-result").style.display = "flex";
+    }
+</script>
+
+<%- include("partials/footer") -%>

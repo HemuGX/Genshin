@@ -1,0 +1,116 @@
+<%- include("partials/header") -%>
+
+<div class="calculation-wrapper">
+    <video id="background-video__home" autoplay loop muted poster="https://wiki.hoyolab.com/_nuxt/videos/bg_anemo.c91ba8c.webm">
+        <source src="https://wiki.hoyolab.com/_nuxt/videos/bg_anemo.c91ba8c.webm" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="row calculation-wrapper">
+            <div class="col-6 col-md-12 col-sm-12 calculation-image">
+                <img src="https://bbs.hoyolab.com/hoyowiki/picture/character/%E9%AD%88/avatar.png" alt="xiao" srcset="">
+            </div>
+            <div class="col-6 col-md-12 col-sm-12 calculation-inputs-wrapper" id="calculation-inputs-wrapper">
+                <div class="calculation-inputs">
+                    <div class="basic-inputs">
+                    <h2>How many primogems you need for next 5 star?</h2>
+                    <label for="primogems_current">Current Primogems?</label>
+                    <input value="0" type="number" id="primogems_current">
+                    <label for="pity_current">Current Pity?</label>
+                    <input  value="0"  type="number" id="pity_current">
+                    <label for="fates_current">Current Fates?</label>
+                    <input value="0" type="number" id="fates_current">
+                    </div>
+                    <div class="dailies-inputs">
+                      <div class="dailies-checkbox-wrapper">
+                        <input type="checkbox" id="dailies_checkbox">
+                        <label class="checkbox_label" for="dailies_checkbox">Include dailies?</label>
+                      </div>
+                      <div hidden id="dailies-expended-content" class="dailies-expended-content">
+                        <label for="enddate">Please enter an end date:</label>
+                        <input type="date" id="enddate" class="enddate">
+                      </div>
+                    </div>
+                    <div class="abyss-inputs">
+                        <div class="abyss-checkbox-wrapper">
+                            <input type="checkbox" id="abyss_checkbox">
+                            <label class="checkbox_label abyss_checkbox" for="abyss_checkbox">Include Abyss? <span>Only enter the stars you are sure of.</span></label>
+                        </div>
+                        <div hidden id="abyss-expended-content" class="abyss-expended-content">
+                            <div class="selectdiv">
+                                <label>
+                                    <select id="abyss_stars">
+                                        <option selected> How many stars? </option>
+                                        <option class="stars" value="3">3</option>
+                                        <option class="stars" value="6">6</option>
+                                        <option class="stars" value="9">9</option>
+                                        <option class="stars" value="12">12</option>
+                                        <option class="stars" value="15">15</option>
+                                        <option class="stars" value="18">18</option>
+                                        <option class="stars" value="21">21</option>
+                                        <option class="stars" value="24">24</option>
+                                        <option class="stars" value="27">27</option>
+                                        <option class="stars" value="30">30</option>
+                                        <option class="stars" value="33">33</option>
+                                        <option class="stars" value="36">36</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-input">
+                        <button onclick="calculate()" class="button" type="Submit">Check</button>
+                    </div>
+                </div>
+            </div>
+            <div hidden class="col-6 col-md-12 col-sm-12 calculation-result" id="calculation-result">
+                <h1 id="output">Hey</h1>
+                <!-- <div class="calculation-result-links">
+                    <a href="/primogems" class="links">Primogems</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+     function calculate() {
+        document.getElementById("calculation-inputs-wrapper").style.display = "none";
+        const currentPrimogems = parseInt(document.getElementById("primogems_current").value);
+        const currentPity = parseInt(document.getElementById("pity_current").value);
+        const currrentFates = parseInt(document.getElementById("fates_current").value) * 160;
+        // const days = parseInt(document.getElementById("days").value) * 60;
+
+        const select = document.getElementById('abyss_stars');
+        const stars_option = select.options[select.selectedIndex].value;
+
+        const stars = parseInt((stars_option / 3) * 50)
+
+            var enddate = document.getElementById("enddate").value
+            var today = new Date().toISOString().slice(0, 10)
+            const date1 = new Date(today)
+            const date2 = new Date(enddate)
+
+            const time = Math.abs(date2-date1)
+            const days = Math.ceil(time/(1000*60*60*24))
+            const dailies = parseInt(days)*60
+            
+            if (document.getElementById('dailies_checkbox').checked) {
+                var sum = parseInt(currentPrimogems) + parseInt(currrentFates) +parseInt(dailies)
+            } else {
+                var sum = parseInt(currentPrimogems) + parseInt(currrentFates) 
+            }
+             
+            if (sum<160) {
+            var numbersOfWish = 0
+            } else {
+            var numbersOfWish = Math.floor(parseInt(sum)/160) 
+            }
+        
+        required = (90 - parseInt(currentPity))
+        document.getElementById("output").innerText = "You will have " + sum + " Primogems means you will be able to do " + numbersOfWish +" pulls.And you are " + required + " pulls away from your next 5 star.";
+        document.getElementById("calculation-result").style.display = "flex";
+    }
+</script>
+
+<%- include("partials/footer") -%>

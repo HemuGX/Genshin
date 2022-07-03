@@ -1,0 +1,45 @@
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+      $(window).on("load",function(){
+        $(".loader-wrapper").fadeOut("slow");
+      });
+
+      // if($("#"+"checkbox").is(":checked")) {
+      //   console.log("Hello")
+      // }
+
+      $("#dailies_checkbox").click(function() {
+  
+
+    
+     if ($('#' + "dailies_checkbox").is(":checked")) {
+      $("#dailies-expended-content").show() 
+     } else {
+      $("#dailies-expended-content").hide() 
+     }
+    })
+
+    $("#abyss_checkbox").click(function() {
+  
+
+    
+  if ($('#' + "abyss_checkbox").is(":checked")) {
+   $("#abyss-expended-content").css("display","flex")
+  //  $(".button") .css("margin-left",("10px"))
+  } else {
+   $("#abyss-expended-content").hide()
+  //  $(".button") .css("margin-left",("0"))
+  }
+
+  
+ })
+
+ 
+   
+  </script>
+ 
+</body>
+</html>
