@@ -16,6 +16,8 @@ html {
 
 body {
     font-family: "Cairo";
+    color: aliceblue;
+    background-color: #2D3441;
 }
 video {
     object-fit: cover;
@@ -27,7 +29,7 @@ video {
     left: 0;
   }
 .container {
-  padding: 0 2%;
+  padding: 0 20px;
 }
 /* Home */
 
@@ -58,6 +60,42 @@ video {
     letter-spacing: .9px;
     font-weight: 700;
 }
+.feature-wrapper {
+  margin: 20px 0;
+}
+
+.feature{
+  margin: 10px 0;
+  /* height: 100%; */
+  width: 100%;
+  padding: 1rem;
+  background-color: #384152;
+  border-radius: 1rem;
+}
+
+.home-banner img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  border: 10px solid #384152;
+}
+.feature-farm {
+  display: none;
+}
+.farm {
+  display: none;
+}
+.farm h2 {
+  font-size: 1rem;
+}
+
+.farm-icons {
+  display: flex;
+}
+.farm-icons img {
+  width: 11%;
+}
+
 
 /* Home Ends*/
 
@@ -68,7 +106,7 @@ footer {
     justify-content: center;
   }
   .footer {
-    padding: 0 10%;
+    padding: 0 20px;
     height: 220px;
     width: 100%;
   }
@@ -204,6 +242,18 @@ input[type=number]:focus {
   border-color:#80bdff;
   outline:0;
   box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
+}
+
+/* EVENTS */
+
+
+/*END EVENTS */
+.maintenance-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
 }
 
 /* DATEPICKER */
@@ -381,6 +431,32 @@ input[type=number]:focus {
 
 
 /* LINKS AND BUTTONS */
+.events-button {
+  margin:27px 0 0 0;
+}
+.bx-calendar-star {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%)
+}
+
+.feature-button span {
+  margin-left: 2%;
+  font-size: 1.5rem
+}
+.feature-button {
+  position: relative;;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: aliceblue;
+  font-family: "Cairo";
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: .405rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.178);
+  transition: .3s ease-in-out;
+}
 .button {
     text-decoration: none;
     color: aliceblue;
@@ -409,11 +485,11 @@ input[type=number]:focus {
   
 .button:hover {
   background-color: #0c3d3b;
-  font-weight: 600;
+  /* font-weight: 600; */
   }
 .button-resin:hover {
     background-color: #1a397c;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
   
   
@@ -448,7 +524,7 @@ input[type=number]:focus {
   
 .links:hover {
       background-color: var(--background-color);
-      font-weight: 600;
+      /* font-weight: 600; */
   }
   
 .home-links {
@@ -505,6 +581,9 @@ input[type=number]:focus {
         width: 60%;
         font-size: 1.5rem;
     }
+    .farm-icons img {
+      width: 7%;
+    }
 }
 
 @media only screen and (max-width: 850px) {
@@ -515,7 +594,7 @@ input[type=number]:focus {
         text-align: left;
     }
     .footer {
-      padding: 0 2%;
+      padding: 0 20px;
     }
       .footer-box .footer-box-2{
        margin-bottom: 20px;
@@ -566,6 +645,12 @@ input[type=number]:focus {
       width: 5rem;
       left: 50%;
     }
+    .farm-icons img {
+      width: 11%;
+    }
+    .maintenance-wrapper img{
+      width: 50%;
+    }
 }
 
 @media only screen and (max-width: 280px) {
@@ -578,7 +663,7 @@ input[type=number]:focus {
 
 /* LOADING ANIMATION */
 .loader-wrapper {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;

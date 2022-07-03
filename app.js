@@ -21,6 +21,9 @@ app.get("/primogems",(req,res) => {
 app.get("/resin",(req,res) => {
     res.render("resin")
 })
+app.get("/events",(req,res) => {
+    res.render("events")
+})
 
 
 app.listen(process.env.PORT||3000,(req,res) => {
