@@ -224,7 +224,7 @@ input[type=number]:focus {
   
   .enddate:focus {
     color:aliceblue;
-    background-color:var(--xiao-color);
+    background-color:#0F4D4A;
     border-color:#80bdff;
     outline:0;
     box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
@@ -500,19 +500,31 @@ input[type=number]:focus {
 }
 
 @media only screen and (max-width: 850px) {
-    footer {
+  html {
+    font-size: 13px;
+  }
+  footer {
         text-align: left;
-      }
+    }
+    .footer {
+      padding: 0 2%;
+    }
       .footer-box {
        margin-bottom: 20px;
-      }
+   }
       .home-image img {
         width: 90%;
-      }
+  }
       .home-header h1 {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
+  }
+      .social-icons {
+        margin: 10px 0;
       }
-    .calculation-image img {
+      .home-description p{
+        font-size: .9rem;
+      }
+  .calculation-image img {
         width: 95%;
     }
     .calculation-image {
@@ -539,14 +551,18 @@ input[type=number]:focus {
     }
 }
 
-
+@media only screen and (max-width: 280px) {
+  html {
+    font-size: 10px;
+  }
+}
 /*Ends Responsive */
 
 
 /* LOADING ANIMATION */
 .loader-wrapper {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
