@@ -26,7 +26,9 @@ video {
     z-index: -1;
     left: 0;
   }
-
+.container {
+  padding: 0 2%;
+}
 /* Home */
 
 .home-image {
@@ -70,7 +72,7 @@ footer {
     height: 220px;
     width: 100%;
   }
-  .footer-box {
+  .footer-box .footer-box-2{
     max-width: 500px;
   }
   
@@ -147,6 +149,9 @@ label {
     align-items: center;
     flex-direction: column;
 }
+.dailies-inputs{
+  margin: 10px 0;
+}
 
 #output {
     color: aliceblue;
@@ -204,7 +209,7 @@ input[type=number]:focus {
 /* DATEPICKER */
 
 .enddate {
-    background-color: #0F4D4A;
+    background-color: initial;
     color: aliceblue;
     border: 1px solid white;
     padding: 0.375rem .75rem;
@@ -462,8 +467,11 @@ input[type=number]:focus {
     footer {
         text-align: left;
       }
-      .footer-box {
-       margin-bottom: 20px;
+      .footer-box .footer-box-2{
+       margin-bottom: 30px;
+      }
+      .footer-box-3 {
+        margin-top: 15px;
       }
       .home-image img {
         width: 60%;
@@ -509,7 +517,7 @@ input[type=number]:focus {
     .footer {
       padding: 0 2%;
     }
-      .footer-box {
+      .footer-box .footer-box-2{
        margin-bottom: 20px;
    }
       .home-image img {
@@ -522,7 +530,7 @@ input[type=number]:focus {
         margin: 10px 0;
       }
       .home-description p{
-        font-size: .9rem;
+        font-size: .63rem;
       }
   .calculation-image img {
         width: 95%;
@@ -549,6 +557,15 @@ input[type=number]:focus {
         width: 90%;
         font-size: 1.2rem;
     }
+
+    .footer-box-2 {
+      position: relative;
+    }
+    .footer-box-2-contents {
+      position: absolute;
+      width: 5rem;
+      left: 50%;
+    }
 }
 
 @media only screen and (max-width: 280px) {
@@ -562,7 +579,7 @@ input[type=number]:focus {
 /* LOADING ANIMATION */
 .loader-wrapper {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
