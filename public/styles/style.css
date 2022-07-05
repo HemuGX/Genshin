@@ -32,6 +32,15 @@ video {
   padding: 0 20px;
 }
 /* Home */
+.admin-greet {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: rgb(47, 150, 175);
+  border-radius: 5px;
+  width: 300px;
+}
 
 .home-image {
     text-align: center;
@@ -71,6 +80,9 @@ video {
   padding: 1rem;
   background-color: #384152;
   border-radius: 1rem;
+}
+.home-banner {
+  position: relative;
 }
 
 .home-banner img {
@@ -221,6 +233,7 @@ label {
     }
   }
 
+
 input[type=number] {
     width: 100%;
     border-radius: .25rem;
@@ -231,6 +244,7 @@ input[type=number] {
     height: 35px;
     font-family: 'Cairo';
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -244,6 +258,7 @@ input[type=number]:focus {
   outline:0;
   box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
 }
+
 
 /* EVENTS */
 
@@ -492,7 +507,20 @@ input[type=number]:focus {
     background-color: #1a397c;
   /* font-weight: 600; */
 }
-  
+.banner-button {
+  color: aliceblue;
+  font-size: 2rem;
+  border-radius: 100%;
+  background-color: #384152e6;
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 50;
+  padding: 1rem;
+
+}
   
 .links {
       text-decoration: none;

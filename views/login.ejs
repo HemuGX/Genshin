@@ -1,0 +1,25 @@
+<%- include("partials/header") -%>
+
+<div class="signin-wrapper">
+    <video id="background-video__home" autoplay loop muted poster="https://wiki.hoyolab.com/_nuxt/videos/bg_aggregate_pc.d812676.webm">
+        <source src="https://wiki.hoyolab.com/_nuxt/videos/bg_aggregate_pc.d812676.webm" type="video/mp4">
+        </video>
+    <div class="container">
+
+        <form action="/login" method="post">
+            <div class="signin-form-box">
+                <h2>Login Form</h2>
+                <div class="signin-form-wrapper">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="username" name="username" placeholder="Username">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="password" name="password" placeholder="Password">
+                    <button class="signin-button" type="submit">Login</button>  
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<%- include("partials/footer") -%>
