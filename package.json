@@ -20,5 +20,14 @@
     "passport": "^0.6.0",
     "passport-local-mongoose": "^7.1.2"
   },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HemuGX/Genshin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HemuGX/Genshin/issues"
+  },
+  "homepage": "https://github.com/HemuGX/Genshin#readme",
   "description": ""
 }
