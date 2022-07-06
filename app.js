@@ -1,3 +1,4 @@
+const env = require('dotenv').config()
 const express = require ("express");
 const ejs = require ("ejs")
 const bodyParser = require ("body-parser");
@@ -5,6 +6,7 @@ const mongoose = require('mongoose');
 const session = require("express-session")
 const passport = require("passport")
 const passportLocalMongoose = require("passport-local-mongoose")
+
 
 const app = express()
 
@@ -32,7 +34,7 @@ app.use(passport.initialize()); //we are initilaizing passport
 app.use(passport.session()); //We are telling passport to use session.
 
 
-mongoose.connect("mongodb://localhost:27017/genshinDB")
+mongoose.connect(process.env.MONGODB_SERVER)
 
 
 const userSchema = new mongoose.Schema({
